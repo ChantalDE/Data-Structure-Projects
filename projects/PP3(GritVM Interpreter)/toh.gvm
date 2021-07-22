@@ -1,0 +1,40 @@
+# Calculates the minumim number of steps to win the toh
+#min = 2^n - 1
+
+#0: n passed in mem
+
+#Check mem
+CHECKMEM 1
+CLEAR
+
+#(i, condition checker)
+INSERT 1
+
+#(min output)
+ADDCONST 1
+INSERT 2
+
+#if n - i = 0
+AT 0
+SUBMEM 1
+JUMPZERO 8
+
+#multiplies output by 2
+AT 2
+MULCONST 2
+SET 2
+
+#adds 1 to i
+AT 1
+ADDCONST 1
+SET 1
+
+#goes back to condition
+JUMPREL -9
+ 
+#min = min - 1
+AT 2
+SUBCONST 1
+SET 2
+ERASE 1
+HALT
